@@ -50,9 +50,8 @@ public class BingoBoard {
 
     public Integer getNonWinningSum(HashSet<Integer> inputs) {
         int sum = 0;
-        for (int row = 0; row < board.size(); row++) {
-            for (int col = 0; col < board.get(row).size(); col++) {
-                int cellVal = board.get(row).get(col);
+        for (ArrayList<Integer> integers : board) {
+            for (int cellVal : integers) {
                 if (!inputs.contains(cellVal)) {
                     sum += cellVal;
                 }

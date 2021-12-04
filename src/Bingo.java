@@ -37,13 +37,12 @@ public class Bingo {
         for (int i = 0 ; i < resultList.size(); i++) {
             HashSet<Integer> numsToCheck = new HashSet<>(resultList.subList(0, i+1));
             ArrayList<BingoBoard> boardsToCheck = new ArrayList<>();
-            for (int boardNum = 0; boardNum < boards.size(); boardNum++) {
-                BingoBoard board = boards.get(boardNum);
+            for (BingoBoard board : boards) {
                 boolean boardWon = board.checkForWin(numsToCheck);
                 if (boardWon) {
                     lastWinnerScore = board.getNonWinningSum(numsToCheck) * resultList.get(i);
                 } else {
-                    boardsToCheck.add(boards.get(boardNum));
+                    boardsToCheck.add(board);
                 }
             }
             boards = boardsToCheck;
@@ -55,8 +54,7 @@ public class Bingo {
     public int findFirstWinningBoardScore() {
         for (int i = 0 ; i < resultList.size(); i++) {
             HashSet<Integer> numsToCheck = new HashSet<>(resultList.subList(0, i+1));
-            for (int boardNum = 0; boardNum < boards.size(); boardNum++) {
-                BingoBoard board = boards.get(boardNum);
+            for (BingoBoard board : boards) {
                 boolean boardWon = board.checkForWin(numsToCheck);
                 if (boardWon) {
                     return board.getNonWinningSum(numsToCheck) * resultList.get(i);
