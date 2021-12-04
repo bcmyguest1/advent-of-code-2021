@@ -1,4 +1,4 @@
-package sonar;
+package navigation;
 
 import java.util.ArrayList;
 
