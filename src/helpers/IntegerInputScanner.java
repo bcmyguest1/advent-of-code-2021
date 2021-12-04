@@ -9,9 +9,13 @@ public class IntegerInputScanner {
     private final ArrayList<Integer> result = new ArrayList<>();
 
     public IntegerInputScanner(File input) {
+        this(input, 10);
+    }
+
+    public IntegerInputScanner(File input, int base) {
         try (Scanner in = new Scanner((new FileReader(input)))) {
             while (in.hasNext()) {
-                result.add(Integer.parseInt(in.nextLine()));
+                result.add(Integer.parseInt(in.nextLine(), base));
             }
         } catch (Exception e) {
             e.printStackTrace();

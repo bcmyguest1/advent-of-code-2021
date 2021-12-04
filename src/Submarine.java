@@ -1,3 +1,4 @@
+import diagnostics.DiagnosticsMonitor;
 import helpers.IntegerInputScanner;
 import helpers.StringInputScanner;
 import navigation.Location;
@@ -19,7 +20,7 @@ public class Submarine {
                 sonarSweeper.findNumSlidingWindowIncreasingDepths() ));
 
 
-        System.out.println("Day 2");
+        System.out.println("\nDay 2");
         StringInputScanner inputScanner = new StringInputScanner(new File("resources/day 2/input.txt"));
         LocationAnalyzer analyzer = new LocationAnalyzer(inputScanner.getResult());
         Location location = analyzer.findFinalLocation();
@@ -29,8 +30,14 @@ public class Submarine {
         System.out.println(String.format("Part 2 - Final depth: %d - Final position: %d - Final Score: %d",
                 locationWithAim.depth, locationWithAim.position, locationWithAim.depth * locationWithAim.position));
 
-        System.out.println("Day 4");
+        System.out.println("\nDay 3");
+        integerInputScanner = new IntegerInputScanner(new File("resources/day 3/input.txt"), 2);
+        DiagnosticsMonitor diagnosticsMonitor = new DiagnosticsMonitor(integerInputScanner.getResult(), 12);
+        System.out.println(String.format("Power consumption: %d", diagnosticsMonitor.determinePowerConsumtion()));
+        diagnosticsMonitor = new DiagnosticsMonitor(integerInputScanner.getResult(), 12);
+        System.out.println(String.format("Life support rating: %d", diagnosticsMonitor.determineLifeSupportRating()));
 
+        System.out.println("\nDay 4");
         inputScanner = new StringInputScanner(new File("resources/day 4/input.txt"));
         System.out.println("let's play bingo!");
         Bingo bingo = new Bingo(inputScanner.getResult());
